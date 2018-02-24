@@ -7,6 +7,7 @@ h1 {
 div.banner  {
   font-size: 56px;
   font-weight:bold;
+  
   width: 100%;
   margin: 0 auto;
   /*background: #ccc;*/
@@ -15,7 +16,11 @@ div.banner  {
   font-family: 'Tangerine', serif;
   text-align:center;
   font-color: white;
+  margin-top: -10px;
+  width:100%;
+
 }
+
 
 p.instructions {
   font-size:36px;
