@@ -1,8 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Tangerine);
+
+
+
+
+
 h1/*footer*/ {
 /*    padding: 1em;*/
-    color: white;
-    background-color: #8E793E ;
-    text-align: center;
+  color: white;
+  background-color: #8E793E ;
+  text-align: center;
+  font-family: 'Tangerine', serif;
+
+}
+
+.banner  {
+  font-size: 32px;
+}
+
+p.instructions {
+  font-size:36px;
 }
 
 
@@ -25,6 +41,59 @@ b, strong {
 }
 
 
+
+.top-box {
+  margin: 0 auto;
+  text-align:center;
+}
+
+
+.input-box {
+  margin: 0 auto;
+  text-align:center;
+}
+
+.box.title.text {
+  color:white;
+}
+
+
+
+
+.container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.column {
+    width: 48%;
+    margin: 1%;
+    float: left;
+}
+
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+
+    min-height: 80%;
+    max-height: 80%;
+
+    overflow: auto;
+}
+
+.center {
+    clear: both;
+    text-align: center;
+}
+
+p {
+  text-align:center;
+  color:white;
+  font-family: 'Tangerine', serif;
+  font-size: 20px;
+}
+
+
 /*footer {
    position:absolute;
    bottom:0;
@@ -39,20 +108,24 @@ b, strong {
 height:100%; 
 box-sizing: border-box;         /* For IE and modern versions of Chrome 
 }*/
-.inline-div-right {
+/*.inline-div-right {
   float:right;
   margin-right:60px;
   overflow:hidden;
+  width:100%; 
+  height:100%
 
 }
 
 .inline-div-left {
   float:left;
   margin-left:60px
+  width:100%; 
+  height:100%
 
 }
 
-textarea { resize:both; } /* none|horizontal|vertical|both */
+textarea { resize:both; } 
 textarea.vert { resize:vertical; }
-textarea.noResize { resize:none; }
+textarea.noResize { resize:none; }*/
 

@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <header>
-  <div class="title">
-    <h1>Markov Chain Poem Generator</h1>
+  <div class="banner">
+    <h1>Romance.js</h1>
   </div> 
   <title> Romance BCV Project</title>
 
 <link rel="stylesheet" href="romance.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+  </head>
 
 
 <script type="text/javascript" src="romance.js"></script>
@@ -21,6 +22,17 @@
 
 
 <body>
+
+  <div> 
+
+    <p class = "instructions"> 
+      Generate your own romantic or funny poem based on the corpus of your choice.<br>
+      First enter the number of lines for your poem.<br>
+      Next enter the number of words.<br>
+      Enjoy!<br>
+    </p> 
+
+  </div>
 
 
 
@@ -94,11 +106,44 @@ The cup is half full dude. Please come take this car out of my life. I want to s
 <!-- <footer>Copyright &copy; Me</footer> -->
 
 
-
+<!-- 
 <div class="inline-div-left">
     <p> <center> <b> Paste Text Here </b> <center> </p>
-    <textarea cols="80" rows="15" class="inline-txtarea" name="input-text">
-Ok, this car is an absolute piece of shit.  
+    <textarea cols="80" rows="15" class="inline-txtarea" name="input-text"> -->
+
+<!--     </textarea>
+</div>
+
+
+<div class="inline-div-right">
+<p align="center"> <b> Here's your poem </b> </p>
+    <textarea cols="80" rows="15" class="inline-txtarea" id = "poem-text"></textarea>
+</div> -->
+
+
+
+
+
+<!-- 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
+
+
+
+
+<!-- gdfgfdh -->
+
+
+
+
+
+<div class="container">
+
+    <div class="column">
+        <p class = "text-area-title"> Paste your corpus here </p>
+
+        <textarea name = "input-text" cols="50" rows="15" >
+          Ok, this car is an absolute piece of shit.  
 Seriously if you are a single guy and you were hoping to get laid this summer, don’t even bother reading this ad. Driving this   
 car will assure you of a hot season of involuntary abstinence better than inviting girls to your weekly Dungeons and Dragons game in your mom’s basement.  
 This thing runs fine and may give you two good years before exploding into a fiery box of death. Or.. It could wait until you’re asleep the first night you take it home and just   
@@ -122,44 +167,65 @@ I BET YOU CAN”T. But this is your big chance to become a pro at the mouth orga
 listening to someone practice harmonica is the most painful thing one human can inflict on another. Now you can use your time in transit to learn and no one has to hear you and want to kill themselves   
 as a result. Before you know it you’ll be blasting out crispy riffs, and people will want you to come jam with their buddy’s band. So look, No stereo seems bad, but it’s really not.   
 The cup is half full dude. Please come take this car out of my life. I want to start dating women again. 
-    </textarea>
+
+        </textarea>
+    </div>
+
+    <div class="column">
+        <p class = "text-area-title"> generated poem </p>
+        <textarea id = "poem-text" cols="50" rows="15"></textarea>
+    </div>
+
+<!--     <div class="center">
+        <input type="button" id="compressButton" name="compressButton" 
+            value="Compress" onClick="compress" />
+    </div> -->
+
 </div>
 
 
-<div class="inline-div-right">
-<p align="center"> <b> Here's your poem </b> </p>
-    <textarea cols="80" rows="15" class="inline-txtarea" id = "poem-text"></textarea>
-</div>
+
+
+<!-- dsfdsf -->
 
 
 
+<div>
 
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class = "top-box">
+    <!-- <center><br> <b> </b> <br></center> -->
 
-<div> 
+    <p class ="box-title-text">Total Number of Lines </p>
 
-  <form action="/action_page.php">
 
-    <center>
-  <br> <b> Total Number of Lines</b> <br>
-  <input type="text" name="first_box" value="">
-  <br><br>
-  <b> Total Number of Words </b><br>
-  <input type="text" name="second_box" value="">
-  <br><br>
+    <input type="text" name="first_box" value="">
+  </div>
+
+
+
+  <div class= "input-box">
+    <!-- <center><b>  </b><br></center> -->
+
+    <p class ="box-title-text">Total Number of Words</p>
+    <input type="text" name="second_box" value="">
+  </div>
+
+
+  <div class="input-box">
+    <br><br>
   <input type="button" id ="btn" class="w3-button w3-grey w3-round-large" name="answer" value="Create Poem!" onclick="generatePoem();" /> <br><br><br>
 
+  
+  </div>
+
+
+</div>
 
 
   
-  </form> 
-
-</center>
-</div>
-
-
+ 
 
 </body>
 
