@@ -1,6 +1,7 @@
+
 function generatePoem() {
 
-  var text = document.getElementsByName("input-text")[0].value;
+  var corpus = document.getElementsByName("input-text")[0].value;
   var numLines = document.getElementsByName("first_box")[0].value;
   var numWords = document.getElementsByName("second_box")[0].value;
 
@@ -24,17 +25,23 @@ function generatePoem() {
   }
 
 
-
-  var arr = parseText(text)
-  var obj = generateWordPairs(arr)
+  // generate markov from corpus
+  var parsedTextArr = parseText(corpus)
+  var obj = generateWordPairs(parsedTextArr)
   var randomValueFromObj  = chooseRandom(obj);
   var markov = writeLine(obj, numWords, numLines);
 
   var doStuffTextArea = document.getElementById('poem-text')
   doStuffTextArea.innerHTML = markov
 
-
+  // create title 
+  var poemTitle = writeLine(obj, 2,3);
+  var newText = document.getElementById('title-from-js');
+  newText.innerHTML = poemTitle
 }
+
+
+
 
 function parseText (corpus) {
 
@@ -67,8 +74,6 @@ function parseText (corpus) {
   
 }
 
-//var arr = parseText(text)
-//console.log(arr);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -156,3 +161,14 @@ function writeLine(obj, numWords, numLines) {
   }
   return finalStr;
 } 
+
+function createTitle(str) {
+  var arr = str.split(' ')
+
+  var newArr = [];
+  for (var i=0; i < arr.length;i++) {
+    var firstLetter = arr[i][0].toUpperCase();
+    newArr.push(firstLetter + arr[i].slice(1));
+  }
+  return newArr.join(' ');
+}
