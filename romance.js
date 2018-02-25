@@ -5,19 +5,18 @@ function generatePoem() {
   var numLines = document.getElementsByName("first_box")[0].value;
   var numWords = document.getElementsByName("second_box")[0].value;
 
-  numLines = parseInt(numLines)
-  numWords = parseInt(numWords)
+  numLines = parseInt(numLines);
+  numWords = parseInt(numWords);
   
   if (isNaN(numLines)) {
-    alert("You enterd a number in Total number of Lines when you were supposed to enter an integer(" + numLines + ')\n\nPlease enter new values!')
+    alert("You entered a number in Total number of Lines when you were supposed to enter an integer(" + numLines + ')\n\nPlease enter new values!')
     return;
   }
 
   if (isNaN(numWords)) {
-    alert("You enterd a number in Total Number of Words when you were supposed to enter an integer(" + numWords + ')\n\nPlease enter new values!')
+    alert("You entered a number in Total Number of Words when you were supposed to enter an integer(" + numWords + ')\n\nPlease enter new values!')
     return;
   }
-
 
   if (numLines > numWords) {
     alert("Total number of lines is greater than total number of words.\n\nPlease enter new values!")
@@ -26,13 +25,13 @@ function generatePoem() {
 
 
   // generate markov from corpus
-  var parsedTextArr = parseText(corpus)
-  var obj = generateWordPairs(parsedTextArr)
+  var parsedTextArr = parseText(corpus);
+  var obj = generateWordPairs(parsedTextArr);
   var randomValueFromObj  = chooseRandom(obj);
   var markov = writeLine(obj, numWords, numLines);
 
-  var doStuffTextArea = document.getElementById('poem-text')
-  doStuffTextArea.innerHTML = markov
+  var poemText = document.getElementById('poem-text');
+  poemText.innerHTML = markov
 
   // create title 
   var poemTitle = writeLine(obj, 2,3);
@@ -58,7 +57,7 @@ function parseText (corpus) {
   for (var i=0; i < corpus.length; i++) {
     var lowerCase = corpus[i].toLowerCase();
     if (alpha.includes(lowerCase) === true) {
-      cleanStr+=lowerCase
+      cleanStr+=lowerCase;
     }
   }
   
@@ -70,12 +69,11 @@ function parseText (corpus) {
       noSpacesArr.push(sentenceArr[j]);
     }
   }
-  return noSpacesArr
+  return noSpacesArr;
   
 }
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function generateWordPairs(arr) {
   
@@ -95,8 +93,6 @@ function generateWordPairs(arr) {
     // find duplicate words & push value to array...
     if(arr[i] === arr[i+1]) {
       dupesArr.push(arr[i+1]);
-      //console.log('in if', arr[i])
-      //console.log(obj[key])
     }
   }
     // .. to eventually add to that key.  
@@ -109,16 +105,12 @@ function generateWordPairs(arr) {
   return obj;
 }
 
-//var obj = generateWordPairs(arr)
-//console.log(obj)
   
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+
 function chooseRandom(obj) {
   
   var keys= Object.keys(obj);
   var randomAnswer = keys[Math.floor(Math.random() * keys.length)];
-  //console.log(randomAnswer)
   
   // this is the value array
   var randWordArr = obj[randomAnswer]
@@ -126,49 +118,29 @@ function chooseRandom(obj) {
   // if value array is > 1, do another random choice
   if (randWordArr.length > 1) {
     var randOfArr = randWordArr[Math.floor(Math.random() * randWordArr.length)];
-    //console.log('balls', randOfArr, randWordArr)
     return [randomAnswer, randOfArr]
   } else {
     return [randomAnswer, randWordArr]
   }
 }
 
-//var randomValueFromObj  = chooseRandom(obj);
-//console.log(randomValueFromObj)
-  
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
 function writeLine(obj, numWords, numLines) {
   
   var finalStr = ""
   
   var wordsPerLine = Math.floor(numWords / numLines);
-  //console.log(wordsPerLine)
   
   var count=0;
+
   for(var i=0; i < numWords; i++) {
     var word = chooseRandom(obj);
-    var wordAppend =  word[0] + ' ';
-    finalStr+=wordAppend;
+    var wordAppend =  word[0];
+    finalStr+=wordAppend + ' ';
     count+=1
     if (count % wordsPerLine === 0) {
-      finalStr+="\n"
+      finalStr+="\n";
     }
-    if (count == numWords) {
-      //finalStr+= "..."
-    }
-    
   }
   return finalStr;
 } 
-
-function createTitle(str) {
-  var arr = str.split(' ')
-
-  var newArr = [];
-  for (var i=0; i < arr.length;i++) {
-    var firstLetter = arr[i][0].toUpperCase();
-    newArr.push(firstLetter + arr[i].slice(1));
-  }
-  return newArr.join(' ');
-}
